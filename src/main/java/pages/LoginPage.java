@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import utils.GenericMethods;
 
 public class LoginPage extends BaseEngine {
   private AppiumDriver driver;
@@ -19,14 +20,65 @@ public class LoginPage extends BaseEngine {
   @iOSXCUITFindBy(accessibility = "IntentLed-PhoneNumberButton")
   private WebElement continueWithPhoneNumberButton;
 
+  @iOSXCUITFindBy(accessibility = "IntentLed-ContinueWithEmailButton")
+  private WebElement continueWithEmailButton;
+
+  @iOSXCUITFindBy(accessibility = "IntentLed-GoogleButton")
+  private WebElement continueWithGoogleButton;
+
+  @iOSXCUITFindBy(iOSNsPredicate = "name == \"Encore.Label\" AND label == \"Log in to Spotify\"")
+  private WebElement loginPageHeading;
+
   @iOSXCUITFindBy(accessibility = "phone-number-entry-text-field")
   private WebElement phoneNumberEntryTextbox;
+
+  @iOSXCUITFindBy(accessibility = "phone-number-entry-title-label-internal")
+  private WebElement phoneNumberEntryTextboxHeading;
 
   @iOSXCUITFindBy(iOSNsPredicate = "name == \"Next\"")
   private WebElement phoneNumberNextButton;
 
   @iOSXCUITFindBy(accessibility = "PopUp.Dialog.Title-internal")
   private WebElement errorPopupHeadingText;
+
+  @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Encore.Label-internal\" and @label=\"Don’t have an account?\"]")
+  private WebElement doNotHavAccount;
+
+  @iOSXCUITFindBy(iOSNsPredicate = "name == \"Encore.Label-internal\" AND label == \"Email or username\"")
+  private WebElement logInWithEmailScreenEmailTextBoxHeading;
+
+  @iOSXCUITFindBy(accessibility = "Back")
+  private WebElement logInWithEmailBack;
+
+  public String getLoginPageHeadingText(){
+    return loginPageHeading.getText();
+  }
+
+  public void verifyContinueWithEmailButton(){
+    GenericMethods.IsElementDisplayed(continueWithEmailButton);
+  }
+
+  public void tapContinueWithEmailButton(){
+    continueWithEmailButton.click();
+  }
+
+  public void verifyContinueWithPhoneNumberButton(){
+    GenericMethods.IsElementDisplayed(continueWithPhoneNumberButton);
+  }
+
+  public void verifyContinueWithGoogleButton(){
+    GenericMethods.IsElementDisplayed(continueWithGoogleButton);
+  }
+
+  public void verifyLoginOptions(){
+    verifyContinueWithGoogleButton();
+    verifyContinueWithEmailButton();
+    verifyContinueWithPhoneNumberButton();
+  }
+
+  public String getDoNotHavAccountText(){
+    return doNotHavAccount.getText();
+  }
 
   public void tapOnContinueWithPhoneNumberButton(){
     continueWithPhoneNumberButton.click();
@@ -40,7 +92,23 @@ public class LoginPage extends BaseEngine {
     phoneNumberNextButton.click();
   }
 
-  public String verifyErrorPopupHeadingText(){
+  public String getErrorPopupHeadingText(){
     return errorPopupHeadingText.getText();
+  }
+
+  public void verifyLogInWithEmailScreenEmailTextBoxHeading(){
+    GenericMethods.IsElementDisplayed(logInWithEmailScreenEmailTextBoxHeading);
+  }
+
+  public void tapOnLogInWithEmailBack(){
+    logInWithEmailBack.click();
+  }
+
+  public void verifyUserNavigatingBackToLoginOptionsPage(){
+    verifyLoginOptions();
+  }
+
+  public void verifyPhoneNumberEntryTextboxHeading(){
+    GenericMethods.IsElementDisplayed(phoneNumberEntryTextboxHeading);
   }
 }
