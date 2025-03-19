@@ -1,8 +1,13 @@
 package base;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import utils.ConfigReader;
 import java.net.MalformedURLException;
@@ -11,6 +16,8 @@ import java.time.Duration;
 
 public class BaseTest {
   protected static IOSDriver driver;
+  protected static ExtentReports extent;
+  protected static ExtentTest test;
 
   @BeforeTest
   public void setup() throws MalformedURLException {
@@ -32,5 +39,24 @@ public class BaseTest {
     if (driver != null) {
       driver.quit();
     }
+  }
+
+  @BeforeSuite
+  public void setUpReporting() {
+    ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
+    extent = new ExtentReports();
+    extent.attachReporter(spark);
+    extent.setSystemInfo("OS", "iOS");
+    extent.setSystemInfo("Tester", "Dhiraj Gawali");
+  }
+
+  public static ExtentTest createTest(String testName) {
+    test = extent.createTest(testName);
+    return test;
+  }
+
+  @AfterSuite
+  public void tearDownReporting() {
+    extent.flush();
   }
 }
