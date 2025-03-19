@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import io.appium.java_client.AppiumDriver;
 import java.time.Duration;
 import io.appium.java_client.pagefactory.*;
+import utils.GenericMethods;
 
 
 public class SplashScreen {
@@ -26,11 +27,15 @@ public class SplashScreen {
   @iOSXCUITFindBy(accessibility = "Welcome-LoginButton")
   private WebElement loginButton;
 
-  @iOSXCUITFindBy(accessibility = "Welcome-SignupButton")
+  @iOSXCUITFindBy(iOSNsPredicate = "name == \"Welcome-SignupButton\"")
   private WebElement signupButton;
 
   public void verifyAppLaunchAndLoginPageTextIsDisplayed(){
     splashScreenTextText.isDisplayed();
+  }
+
+  public void verifySplashScreenLogo(){
+    GenericMethods.IsElementDisplayed(splashScreenSpotifyLogo);
   }
 
   public String getLoginPageTextMessage(){
@@ -39,6 +44,14 @@ public class SplashScreen {
 
   public void tapOnLoginButton(){
     loginButton.click();
+  }
+
+  public void verifySignUpButtonDisplayed(){
+    GenericMethods.IsElementDisplayed(signupButton);
+  }
+
+  public void verifyLoginButtonDisplayed(){
+    GenericMethods.IsElementDisplayed(loginButton);
   }
 
   public void tapOnSignupButton(){
