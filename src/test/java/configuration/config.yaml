@@ -1,0 +1,8 @@
+appium:
+  platformName: "iOS"
+  platformVersion: "18.3.1"
+  deviceName: "Dhiraj’s iPhone"
+  app: "com.spotify.client"
+  udid: "00008030-001A45980C61802E"
+  automationName: "XCUITest"
+  appiumServerURL: "http://localhost:4723/"
