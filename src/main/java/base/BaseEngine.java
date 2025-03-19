@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseEngine {
   protected static IOSDriver driver;
   protected static ExtentReports extent;
   protected static ExtentTest test;
