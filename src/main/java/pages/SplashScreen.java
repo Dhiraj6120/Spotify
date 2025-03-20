@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import io.appium.java_client.AppiumDriver;
 import java.time.Duration;
 import io.appium.java_client.pagefactory.*;
-import utils.GenericMethods;
+import utils.CustomMethods;
 
 
 public class SplashScreen {
@@ -35,7 +35,7 @@ public class SplashScreen {
   }
 
   public void verifySplashScreenLogo(){
-    GenericMethods.IsElementDisplayed(splashScreenSpotifyLogo);
+    CustomMethods.verifyElementDisplayed(splashScreenSpotifyLogo);
   }
 
   public String getLoginPageTextMessage(){
@@ -47,11 +47,11 @@ public class SplashScreen {
   }
 
   public void verifySignUpButtonDisplayed(){
-    GenericMethods.IsElementDisplayed(signupButton);
+    CustomMethods.verifyElementDisplayed(signupButton);
   }
 
   public void verifyLoginButtonDisplayed(){
-    GenericMethods.IsElementDisplayed(loginButton);
+    CustomMethods.verifyElementDisplayed(loginButton);
   }
 
   public void tapOnSignupButton(){

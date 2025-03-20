@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import utils.GenericMethods;
+import utils.CustomMethods;
 
 public class LoginPage extends BaseEngine {
   private AppiumDriver driver;
@@ -55,7 +55,7 @@ public class LoginPage extends BaseEngine {
   }
 
   public void verifyContinueWithEmailButton(){
-    GenericMethods.IsElementDisplayed(continueWithEmailButton);
+    CustomMethods.verifyElementDisplayed(continueWithEmailButton);
   }
 
   public void tapContinueWithEmailButton(){
@@ -63,11 +63,11 @@ public class LoginPage extends BaseEngine {
   }
 
   public void verifyContinueWithPhoneNumberButton(){
-    GenericMethods.IsElementDisplayed(continueWithPhoneNumberButton);
+    CustomMethods.verifyElementDisplayed(continueWithPhoneNumberButton);
   }
 
   public void verifyContinueWithGoogleButton(){
-    GenericMethods.IsElementDisplayed(continueWithGoogleButton);
+    CustomMethods.verifyElementDisplayed(continueWithGoogleButton);
   }
 
   public void verifyLoginOptions(){
@@ -97,7 +97,7 @@ public class LoginPage extends BaseEngine {
   }
 
   public void verifyLogInWithEmailScreenEmailTextBoxHeading(){
-    GenericMethods.IsElementDisplayed(logInWithEmailScreenEmailTextBoxHeading);
+    CustomMethods.verifyElementDisplayed(logInWithEmailScreenEmailTextBoxHeading);
   }
 
   public void tapOnLogInWithEmailBack(){
@@ -109,6 +109,6 @@ public class LoginPage extends BaseEngine {
   }
 
   public void verifyPhoneNumberEntryTextboxHeading(){
-    GenericMethods.IsElementDisplayed(phoneNumberEntryTextboxHeading);
+    CustomMethods.verifyElementDisplayed(phoneNumberEntryTextboxHeading);
   }
 }
