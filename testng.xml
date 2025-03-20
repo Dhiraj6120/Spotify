@@ -43,4 +43,14 @@
         </classes>
     </test>
 
+    <test name="Verify User Is Not Able To Login With Invalid Email Credentials">
+        <classes>
+            <class name="tests.AppTests">
+                <methods>
+                    <include name="verifyUserIsNotAbleToLoginWithInvalidEmailCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>
