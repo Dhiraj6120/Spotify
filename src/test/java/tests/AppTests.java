@@ -43,6 +43,25 @@ public class AppTests extends BaseEngine {
     loginPage.verifyUserNavigatingBackToLoginOptionsPage();
   }
 
+  @Test
+  public void verifyUserIsNotAbleToLoginWithInvalidCredentials(){
+    test = createTest("Valid user is able to Login with email to Spotify Application");
+    test.info("Launching Spotify app");
+    SplashScreen splashScreen = new SplashScreen(driver);
+    splashScreen.verifyAppLaunchAndLoginPageTextIsDisplayed();
+    splashScreen.tapOnLoginButton();
+    LoginPage loginPage = new LoginPage(driver);
+    loginPage.tapContinueWithEmailButton();
+    EmailLoginPage emailLoginPage = new EmailLoginPage(driver);
+    emailLoginPage.verifyLogInWithEmailScreenPasswordTextBoxHeading();
+    emailLoginPage.verifyLogInWithEmailScreenPasswordTextBoxHeading();
+    emailLoginPage.enterEmailID("user3@example.com");
+    emailLoginPage.enterPasswordField("password789");
+    emailLoginPage.tapOnLogInWithEmailScreenLoginButton();
+    emailLoginPage.verifyErrorMessageForInvalidUser();
+    CustomMethods.staticWait(15);
+  }
+
   @Test(dataProvider = "loginData", dataProviderClass = testdata.LoginData.class)
   public void verifyEmailLoginScenarioWithDataDrivenTesting(String email, String password){
     test = createTest("Valid user is able to Login with email to Spotify Application");
