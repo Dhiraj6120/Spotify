@@ -3,8 +3,10 @@ package tests;
 import base.BaseEngine;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.EmailLoginPage;
 import pages.LoginPage;
 import pages.SplashScreen;
+import utils.CustomMethods;
 
 public class AppTests extends BaseEngine {
 
@@ -39,6 +41,24 @@ public class AppTests extends BaseEngine {
     loginPage.verifyPhoneNumberEntryTextboxHeading();
     loginPage.tapOnLogInWithEmailBack();
     loginPage.verifyUserNavigatingBackToLoginOptionsPage();
+  }
+
+  @Test(dataProvider = "loginData", dataProviderClass = testdata.LoginData.class)
+  public void verifyEmailLoginScenarioWithDataDrivenTesting(String email, String password){
+    test = createTest("Valid user is able to Login with email to Spotify Application");
+    test.info("Launching Spotify app");
+    SplashScreen splashScreen = new SplashScreen(driver);
+    splashScreen.verifyAppLaunchAndLoginPageTextIsDisplayed();
+    splashScreen.tapOnLoginButton();
+    LoginPage loginPage = new LoginPage(driver);
+    loginPage.tapContinueWithEmailButton();
+    EmailLoginPage emailLoginPage = new EmailLoginPage(driver);
+    emailLoginPage.verifyLogInWithEmailScreenPasswordTextBoxHeading();
+    emailLoginPage.verifyLogInWithEmailScreenPasswordTextBoxHeading();
+    emailLoginPage.enterEmailID(email);
+    emailLoginPage.enterPasswordField(password);
+    emailLoginPage.tapOnLogInWithEmailScreenLoginButton();
+    CustomMethods.staticWait(5);
   }
 
   @Test
