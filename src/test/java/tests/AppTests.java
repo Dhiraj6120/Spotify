@@ -44,7 +44,7 @@ public class AppTests extends BaseEngine {
   }
 
   @Test
-  public void verifyUserIsNotAbleToLoginWithInvalidCredentials(){
+  public void verifyUserIsNotAbleToLoginWithInvalidEmailCredentials(){
     test = createTest("Valid user is able to Login with email to Spotify Application");
     test.info("Launching Spotify app");
     SplashScreen splashScreen = new SplashScreen(driver);
