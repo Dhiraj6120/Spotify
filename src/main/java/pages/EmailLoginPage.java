@@ -36,6 +36,9 @@ public class EmailLoginPage extends BaseEngine {
   @iOSXCUITFindBy(accessibility = "Login-LoginButton")
   private WebElement logInWithEmailScreenLoginButton;
 
+  @iOSXCUITFindBy(iOSNsPredicate = "name == \"This email and password combination is incorrect.\"")
+  private WebElement invalidEmailPasswordErrorMessage;
+
   public void verifyLogInWithEmailScreenEmailTextBoxHeading(){
     CustomMethods.verifyElementDisplayed(logInWithEmailScreenEmailTextBoxHeading);
   }
@@ -54,6 +57,11 @@ public class EmailLoginPage extends BaseEngine {
 
   public void tapOnLogInWithEmailScreenLoginButton(){
     CustomMethods.clickElement(logInWithEmailScreenLoginButton);
+  }
+
+  public void verifyErrorMessageForInvalidUser(){
+    System.out.println(invalidEmailPasswordErrorMessage.getText());
+    CustomMethods.verifyElementDisplayed(invalidEmailPasswordErrorMessage);
   }
 
 }
