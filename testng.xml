@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Spotify App Automation Suite">
 
-    <test name="Verify App Launch">
+    <test name="Verify the application launches successfully.">
         <classes>
             <class name="tests.AppTests">
                 <methods>
@@ -12,7 +12,7 @@
         </classes>
     </test>
 
-    <test name="Validate Login Screen Elements">
+    <test name="Ensure all elements on the login screen are displayed correctly.">
         <classes>
             <class name="tests.AppTests">
                 <methods>
@@ -22,7 +22,7 @@
         </classes>
     </test>
 
-    <test name="Verify Error Popup for Invalid Mobile Number">
+    <test name="Confirm the error popup appears for an invalid mobile number.">
         <classes>
             <class name="tests.AppTests">
                 <methods>
@@ -32,8 +32,7 @@
         </classes>
     </test>
 
-    <!-- Fixed Test Name -->
-    <test name="Verify Email Login with Data-Driven Testing">
+    <test name="Test login with multiple users (valid and invalid) using data-driven testing.">
         <classes>
             <class name="tests.AppTests">
                 <methods>
@@ -43,7 +42,7 @@
         </classes>
     </test>
 
-    <test name="Verify User Is Not Able To Login With Invalid Email Credentials">
+    <test name="Verify the app restricts login with incorrect email credentials.">
         <classes>
             <class name="tests.AppTests">
                 <methods>
