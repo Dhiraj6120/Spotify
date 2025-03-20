@@ -43,9 +43,8 @@ Spotify-iOS-Automation/
 ## **Setup & Installation**  
 
 ### **Prerequisites**  
-1. Install **Java 20** (as per `pom.xml`).  
-2. Install **Maven**.  
-3. Install **Appium** and start the Appium server.  
+1. Install **Java 20** (as per `pom.xml`).
+2. Install **Appium** and start the Appium server.  
    ```sh
    npm install -g appium
    appium
