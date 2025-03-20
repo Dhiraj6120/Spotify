@@ -32,7 +32,6 @@
         </classes>
     </test>
 
-    <!-- Fixed Test Name -->
     <test name="Test login with multiple users (valid and invalid) using data-driven testing.">
         <classes>
             <class name="tests.AppTests">
